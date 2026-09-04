@@ -18,20 +18,20 @@ pip install genai-sse-patch
 
 ## Usage
 
-Opt in via env var (no code change):
+Importing the package with the env var set replaces `HttpResponse._iter_response_stream` and `_aiter_response_stream` on import. No other code change is needed:
 
 ```bash
 GOOGLE_GENAI_SSE_PATCH=1 python my_app.py
 ```
 
-Or call explicitly:
+To apply the patch from Python instead of the env var:
 
 ```python
 import genai_sse_patch
-genai_sse_patch.install()
+genai_sse_patch.apply()
 ```
 
-`install()` is idempotent. `uninstall()` restores the SDK originals.
+Recognised truthy values for `GOOGLE_GENAI_SSE_PATCH`: `1`, `true`, `yes`, `on` (case-insensitive).
 
 ## License
 
