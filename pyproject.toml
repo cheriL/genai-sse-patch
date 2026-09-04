@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "genai-sse-patch"
+version = "0.1.0"
+description = "Drop SSE comment lines in google-genai stream iterators."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Soup", email = "lqh348659137@outlook.com" }]
+keywords = ["google-genai", "sse", "heartbeat", "monkey-patch"]
+dependencies = ["google-genai>=1.0,<3.0"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/cheriL/genai-sse-patch"
+Issues = "https://github.com/cheriL/genai-sse-patch/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/genai_sse_patch"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/genai_sse_patch", "tests", "README.md", "LICENSE", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
