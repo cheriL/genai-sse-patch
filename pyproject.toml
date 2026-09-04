@@ -24,6 +24,9 @@ classifiers = [
 Homepage = "https://github.com/cheriL/genai-sse-patch"
 Issues = "https://github.com/cheriL/genai-sse-patch/issues"
 
+[project.optional-dependencies]
+test = ["pytest", "pytest-asyncio", "httpx", "aiohttp"]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/genai_sse_patch"]
 
